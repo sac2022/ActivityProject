@@ -156,7 +156,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"console": {"class": "logging.StreamHandler"}},
+    "loggers": {
+        "": {"handlers": ["console"], "level": "INFO"},
+        "django": {"handlers": ["console"], "level": "INFO"},
+    },
+}
 
 STATIC_URL = '/static/'
 # Activate heroku setting for django
-django_heroku.settings(locals())
+django_heroku.settings(locals(),logging=False)

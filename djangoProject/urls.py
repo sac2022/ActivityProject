@@ -22,12 +22,19 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from django.urls import path, include
 from webapp import views
 
+
+# A forced error page
+def error_page(request):
+    raise NotImplementedError("Page not found")
+
+
 router = routers.DefaultRouter()
 router.register('Members', views.MemberViewSet)
 router.register('Period', views.PeriodViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^Activity/', include(router.urls))
+    url(r'^Activity/', include(router.urls)),
+    url(r'^error/$', error_page),
 
 ]
