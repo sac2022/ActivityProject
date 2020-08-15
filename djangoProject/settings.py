@@ -33,7 +33,7 @@ SECURE_REFERRER_POLICY = "same-origin"
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-ALLOWED_HOSTS = ['http://acttestapp.herokuapp.com']
+ALLOWED_HOSTS = ['https://acttestapp.herokuapp.com']
 
 # Application definition
 
