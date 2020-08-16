@@ -23,17 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0ypn0$ybl0$4zqx3nxmu26j9@%1uk$*%=!yy_6f^bd*m5!oykm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-SECURE_HSTS_SECONDS = 60000
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-# Privacy
-SECURE_REFERRER_POLICY = "same-origin"
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-ALLOWED_HOSTS = ['https://acttestapp.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -78,37 +69,6 @@ TEMPLATES = [
         },
     },
 ]
-REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
-    'DEFAULT_PAGINATION_CLASS':
-        'rest_framework_json_api.pagination.JsonApiPageNumberPagination',
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework_json_api.parsers.JSONParser',
-        'rest_framework.parsers.FormParser',
-        'rest_framework.parsers.MultiPartParser'
-    ),
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework_json_api.renderers.JSONRenderer',
-        # If you're performance testing, you will want to use the browseable API
-        # without forms, as the forms can generate their own queries.
-        # If performance testing, enable:
-        # 'example.utils.BrowsableAPIRendererWithoutForms',
-        # Otherwise, to play around with the browseable API, enable:
-        'rest_framework.renderers.BrowsableAPIRenderer'
-    ),
-    'DEFAULT_METADATA_CLASS': 'rest_framework_json_api.metadata.JSONAPIMetadata',
-    'DEFAULT_FILTER_BACKENDS': (
-        'rest_framework_json_api.filters.QueryParameterValidationFilter',
-        'rest_framework_json_api.filters.OrderingFilter',
-        'rest_framework_json_api.django_filters.DjangoFilterBackend',
-        'rest_framework.filters.SearchFilter',
-    ),
-    'SEARCH_PARAM': 'filter[search]',
-    'TEST_REQUEST_RENDERER_CLASSES': (
-        'rest_framework_json_api.renderers.JSONRenderer',
-    ),
-    'TEST_REQUEST_DEFAULT_FORMAT': 'vnd.api+json'
-}
 
 WSGI_APPLICATION = 'djangoProject.wsgi.application'
 
@@ -165,6 +125,30 @@ LOGGING = {
         "django": {"handlers": ["console"], "level": "INFO"},
     },
 }
+# settings file Permission: The IsAuthenticated permission class will deny permission to any unauthenticated user,
+# and allow permission otherwise. This permission is suitable if you want your API to only be accessible to
+# registered users. Pagination: Django provides a few classes that help you manage paginated data – that is,
+# data that’s split across several pages, with “Previous/Next” links.
+# Use Django's standard `django.contrib.auth` permissions,
+# or allow read-only access for unauthenticated users.
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+
+}
+
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+SECURE_HSTS_SECONDS = 60000
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+# Privacy
+SECURE_REFERRER_POLICY = "same-origin"
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 STATIC_URL = '/static/'
 # Activate heroku setting for django
