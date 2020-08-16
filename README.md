@@ -64,7 +64,9 @@ Deployed in heruko: https://acttestapp.herokuapp.com/
 3) heroku run python manage.py createsuperuser
 
 Steps:
-Note: We need to create a suoeruser and login and later open https://acttestapp.herokuapp.com/
+Note: for testing purpose you can login as Username:Sachin, Password:1234
+
+Note:In production, We need to create a suoeruser and login and later open https://acttestapp.herokuapp.com/
 1) once super user is created, open the admin mode https://acttestapp.herokuapp.com/admin
 
 2) add Member Details followed by Period
