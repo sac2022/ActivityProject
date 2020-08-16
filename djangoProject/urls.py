@@ -17,9 +17,9 @@ from django.conf.urls import url
 from django.contrib import admin
 from rest_framework import routers
 from rest_framework.routers import DefaultRouter
-from rest_framework.urlpatterns import format_suffix_patterns
+# from rest_framework.urlpatterns import format_suffix_patterns
 
-from django.urls import path, include
+from django.urls import include
 from webapp import views
 
 
@@ -28,6 +28,7 @@ def error_page(request):
     raise NotImplementedError("Page not found")
 
 
+# routing the url
 router = routers.DefaultRouter()
 router.register('Members', views.MemberViewSet)
 router.register('Period', views.PeriodViewSet)

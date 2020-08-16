@@ -1,24 +1,22 @@
 from django.db import models
-import pytz
-from rest_framework import serializers
-from timezone_field import TimeZoneField
+
 
 # Create your models here.
-import pytz
-from django.utils import timezone
 
-
+# creating two models for the user and activity
 class Member(models.Model):
     mem_id = models.CharField(max_length=12)
     real_name = models.CharField(max_length=60)
     tz = models.CharField(max_length=60)
 
+    # name of the field in admin page
     def __str__(self):
         return self.real_name
 
 
 class Period(models.Model):
-    member = models.ForeignKey(Member,related_name="activity", on_delete=models.CASCADE)
+    # referring to the Member Class
+    member = models.ForeignKey(Member, on_delete=models.CASCADE)
     start = models.DateTimeField()
     end = models.DateTimeField()
 

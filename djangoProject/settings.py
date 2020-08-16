@@ -24,7 +24,7 @@ SECRET_KEY = '0ypn0$ybl0$4zqx3nxmu26j9@%1uk$*%=!yy_6f^bd*m5!oykm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-SECURE_HSTS_SECONDS = 6000
+SECURE_HSTS_SECONDS = 60000
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
@@ -33,7 +33,7 @@ SECURE_REFERRER_POLICY = "same-origin"
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-ALLOWED_HOSTS = ['https://acttestapp.herokuapp.com']
+ALLOWED_HOSTS = ['https://acttestapp.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -168,4 +168,4 @@ LOGGING = {
 
 STATIC_URL = '/static/'
 # Activate heroku setting for django
-django_heroku.settings(locals(),logging=False)
+django_heroku.settings(locals(), logging=False)
