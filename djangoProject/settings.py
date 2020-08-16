@@ -24,7 +24,7 @@ SECRET_KEY = '0ypn0$ybl0$4zqx3nxmu26j9@%1uk$*%=!yy_6f^bd*m5!oykm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://acttestapp.herokuapp.com/', '127.0.0.1:8000']
 
 # Application definition
 
@@ -137,7 +137,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 
 }
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
