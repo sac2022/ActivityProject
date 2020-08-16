@@ -132,7 +132,7 @@ LOGGING = {
 # Use Django's standard `django.contrib.auth` permissions,
 # or allow read-only access for unauthenticated users.
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': 'rest_framework.permissions.IsAuthenticated'
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
     }
 
 
