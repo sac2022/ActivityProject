@@ -64,7 +64,7 @@ Deployed in heruko: https://acttestapp.herokuapp.com/
 3) heroku run python manage.py createsuperuser
 
 Steps:
-
+Note: We need to create a suoeruser and login and later open https://acttestapp.herokuapp.com/
 1) once super user is created, open the admin mode https://acttestapp.herokuapp.com/admin
 
 2) add Member Details followed by Period
@@ -74,10 +74,10 @@ Steps:
 4)Open Activity Mode, https://acttestapp.herokuapp.com/Activity
 
 5)APi links:
-  a) https://acttestapp.herokuapp.com/Activity/Members/
+  a) https://acttestapp.herokuapp.com/Members/
   
   
-  b) https://acttestapp.herokuapp.com/Activity/Period/
+  b) https://acttestapp.herokuapp.com/Period/
 
 You can easily test the endpoints we have created with many tools. You can use Postman to do that if you are the gui type. Or simply use httpie , a command line for HTTP client. It is a CLI, cURL-like tool for humans.
 
