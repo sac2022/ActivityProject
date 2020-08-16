@@ -22,5 +22,5 @@ class Period(models.Model):
     end = models.DateTimeField()
 
     # displays the name of the field in admin page
-    def __str__(self):
+    def __unicode__(self):
         return self.member
