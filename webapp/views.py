@@ -26,19 +26,7 @@ class MemberViewSet(viewsets.ModelViewSet):
     queryset = Member.objects.all().order_by("mem_id")
     serializer_class = ItemSerializer
 
-    def get_queryset(self):
-        return self.queryset
-
-    def get_serializer(self, *args, **kwargs):
-        return self.queryset, self.serializer_class
-
 
 class PeriodViewSet(viewsets.ModelViewSet):
     queryset = Period.objects.all()
     serializer_class = PeriodSerializer
-
-    def get_queryset(self):
-        return self.queryset
-
-    def get_serializer(self, *args, **kwargs):
-        return self.queryset, self.serializer_class
