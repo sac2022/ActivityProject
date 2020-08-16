@@ -35,7 +35,7 @@ router.register('Period', views.PeriodViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^Activity/', include(router.urls)),
+    url(r'^', include(router.urls)),
     url(r'^error/$', error_page)
 
 ]
