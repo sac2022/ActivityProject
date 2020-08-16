@@ -9,15 +9,19 @@ from rest_framework.exceptions import ValidationError
 from .models import Member, Period
 
 
-# Serializing the data from the model
-class ItemSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Member  # model name
-        # fields = ('mem_id', 'real_name', 'tz')
-        fields = '__all__'  # gives all feild data to be  serialized
-
-
 class PeriodSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Period
         fields = '__all__'
+
+# Serializing the data from the model
+class ItemSerializer(serializers.HyperlinkedModelSerializer):
+    activity_periods = PeriodSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Member  # model name
+        # fields = ('mem_id', 'real_name', 'tz')
+        fields = ['mem_id', 'real_name', 'tz', 'activity_periods']
+
+
+
